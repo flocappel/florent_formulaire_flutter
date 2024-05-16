@@ -1,6 +1,8 @@
  import 'package:flutter/material.dart';
-import 'package:flutter_application_5/utils/flutter_secure_storage.dart';
+ import 'package:flutter_application_5/utils/flutter_secure_storage.dart';
  import '../api/user.dart';
+ import 'package:provider/provider.dart';
+ import '../providers/auth_provider.dart';
  
  class LoginForm extends StatefulWidget {
   @override
@@ -37,6 +39,7 @@ import 'package:flutter_application_5/utils/flutter_secure_storage.dart';
           await login(_emailController.text, _passwordController.text);
       await secureStorage.saveCredentials(
           _emailController.text, _passwordController.text);
+          Provider.of<AuthProvider>(context, listen: false).login();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Authentification réussie')),
       );
@@ -129,4 +132,13 @@ import 'package:flutter_application_5/utils/flutter_secure_storage.dart';
  (email et mot de passe).
  _isLoading : Indicateur de chargement pour montrer si une opération est en cours.
  secureStorage : Instance de SecureStorage 
+ */
+
+/*
+Provider.of<AuthProvider>(context, listen: false) : Récupère l'instance de AuthProvider sans
+ s'inscrire aux notifications de changement d'état.
+ .login() : Appelle la méthode login de AuthProvider, qui met à jour l'état d'authentification.
+ listen: false, le widget actuel ne se reconstruit pas si l'état de AuthProvider change, ce qui est utile
+ pour des actions ponctuelles comme l'authentification de l'utilisateur. En effet, on se redirige sur une
+ autre page
  */

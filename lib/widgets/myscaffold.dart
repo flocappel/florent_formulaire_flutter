@@ -1,5 +1,7 @@
 // Nous allons définir un Scaffold que nous appellerons dans les écrans de notre application.
  import 'package:flutter/material.dart';
+ import 'package:provider/provider.dart';
+ import '../providers/auth_provider.dart';
  class MyScaffold extends StatelessWidget {
    /* classe qui hérite de StatelessWidget, indiquant que ce
  widget n'a pas d'état interne qui change au fil du temps.*/
@@ -14,6 +16,7 @@
   @override
   Widget build(BuildContext context) {
      // Méthode qui décrit comment le widget est construit en utilisant le contexte actuel.
+     final authProvider = Provider.of<AuthProvider>(context);
     return Scaffold(  // Retourne un widget Scaffold personnalisé :
       appBar: AppBar( // inclut un bouton pour naviguer vers la route « register »
         title: Text(name, style: const TextStyle(color: Colors.white)),
@@ -29,8 +32,35 @@
               );
             },
           ),
+          /* A voir
         ],
       ),
+
+*/
+         IconButton(
+            icon: Icon(
+              authProvider.isLoggedIn ? Icons.logout : Icons.login,
+     color: Colors.white,
+            ),
+            onPressed: () {
+              if (authProvider.isLoggedIn) {
+                authProvider.logout();
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  '/login',
+                  (Route<dynamic> route) => false,
+                );
+              } else {
+                Navigator.pushNamed(
+                  context,
+                  '/login',
+                );
+              }
+            },
+          ),
+        ],
+      ),
+//
       backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
       body: body, 
  // Le corps principal du Scaffold est défini par le widget passé à MyScaffold lors de sacréation.
