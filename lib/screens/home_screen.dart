@@ -14,7 +14,7 @@
   }
   @override
   Widget build(BuildContext context) {
-    return MyScaffold(
+    return const MyScaffold(
       name: 'Home',
       body: Center(),
     );

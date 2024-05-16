@@ -15,7 +15,7 @@
   }
   @override
   Widget build(BuildContext context) {
-    return MyScaffold(name: 'Register', body: RegisterForm());
+    return const MyScaffold(name: 'Register', body: RegisterForm());
   }
  }
  //  L’écran d’inscription est créé avec le Scaffold personnalisé et le formulaire défini précédemment

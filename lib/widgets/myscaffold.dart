@@ -7,23 +7,21 @@
   final String name; // texte qui sera utilisé comme titre dans l'AppBar
   final List<Widget> actions; // liste optionnelle de widgets (comme des boutons) à afficher dans l'AppBar.
   const MyScaffold(
-      {Key? key,
+      {super.key,
       required this.body,
       required this.name,
-      this.actions = const []}) 
-      // Initialise actions à une liste vide si aucune valeur n'est fournie lors de la création de l'instance
-      : super(key: key);
+      this.actions = const []});
   @override
   Widget build(BuildContext context) {
      // Méthode qui décrit comment le widget est construit en utilisant le contexte actuel.
     return Scaffold(  // Retourne un widget Scaffold personnalisé :
       appBar: AppBar( // inclut un bouton pour naviguer vers la route « register »
-        title: Text(this.name, style: TextStyle(color: Colors.white)),
+        title: Text(name, style: const TextStyle(color: Colors.white)),
         elevation: 10.0,
         centerTitle: true,
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.app_registration, color: Colors.white),
+            icon: const Icon(Icons.app_registration, color: Colors.white),
             onPressed: () {
               Navigator.pushNamed(
                 context,
@@ -36,10 +34,10 @@
       backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
       body: body, 
  // Le corps principal du Scaffold est défini par le widget passé à MyScaffold lors de sacréation.
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: const FloatingActionButton(
         // Un bouton d'action flottant qui, pour l'instant, n'a pas d'action associée (onPressed est null).
         onPressed: null,
-        child: const Icon(Icons.add),
+        child: Icon(Icons.add),
       ),
     );
   }

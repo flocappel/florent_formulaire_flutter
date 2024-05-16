@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_5/screens/home_screen.dart';
 import 'package:flutter_application_5/screens/register_screen.dart';
- void main() {
-  runApp(const MainApp());
+import 'package:provider/provider.dart';
+import 'providers/auth_provider.dart';
+  void main() {
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => AuthProvider(),
+      child: MainApp(),
+    ),
+  );
  }
  class MainApp extends StatelessWidget {
   const MainApp({super.key});

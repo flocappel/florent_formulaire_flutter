@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_5/api/user.dart';
  class RegisterForm extends StatefulWidget {
+  const RegisterForm({super.key});
+
   @override
   _RegisterFormState createState() => _RegisterFormState();
  }
@@ -116,7 +118,7 @@ import 'package:flutter_application_5/api/user.dart';
     return Form(
       key: _formKey,
       child: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -146,7 +148,7 @@ import 'package:flutter_application_5/api/user.dart';
                 return null;
               },
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
  TextFormField(
               controller: _firstNameController,
               decoration: const InputDecoration(
@@ -173,10 +175,10 @@ import 'package:flutter_application_5/api/user.dart';
                 return null;
               },
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
  TextFormField(
               controller: _emailController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Email',
                 border: OutlineInputBorder(),
               ),
@@ -193,10 +195,10 @@ import 'package:flutter_application_5/api/user.dart';
                 return null;
               },
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
              TextFormField(
               controller: _passwordController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Mot de passe',
                 border: OutlineInputBorder(),
               ),
@@ -230,10 +232,10 @@ import 'package:flutter_application_5/api/user.dart';
                 return null; 
               },
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
  TextFormField(
               controller: _confirmPasswordController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Confirmez le mot de passe',
                 border: OutlineInputBorder(),
               ),
@@ -249,9 +251,9 @@ import 'package:flutter_application_5/api/user.dart';
                 return null;
               },
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
                         CheckboxListTile(
-              title: Text('Accepter les termes et conditions'),
+              title: const Text('Accepter les termes et conditions'),
               value: _agreeToTerms,
               onChanged: (bool? newValue) {
                 setState(() {
@@ -260,10 +262,10 @@ import 'package:flutter_application_5/api/user.dart';
               },
               controlAffinity: ListTileControlAffinity.leading,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _agreeToTerms ? _submitForm : null,
-              child: Center(child: Text('S\'inscrire')),
+              child: const Center(child: Text('S\'inscrire')),
             ),
           ],
         ),
