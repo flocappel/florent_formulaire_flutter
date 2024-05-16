@@ -78,7 +78,7 @@ import 'package:http/http.dart' as http;
  */
 
 Future<List<User>> fetchUsers() async {
-  final response = await http.get(Uri.parse('https://s3-5002.nuage-peda.fr/user'));
+  final response = await http.get(Uri.parse('https://s3-5002.nuage-peda.fr/users'));
 
   if (response.statusCode == 200) {
     List<dynamic> data = jsonDecode(response.body);
