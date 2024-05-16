@@ -1,7 +1,7 @@
  import 'package:flutter/material.dart';
  import 'package:flutter_application_5/widgets/myscaffold.dart';
  import '../api/message.dart';
- import '../model/message_model.dart';
+ import '../models/message_model.dart';
  class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
   @override

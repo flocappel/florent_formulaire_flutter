@@ -1,7 +1,7 @@
 // 
  import 'dart:convert';
  import 'package:http/http.dart' as http;
- import '../model/message_model.dart';
+ import '../models/message_model.dart';
  class Message {
   static const String apiUrl = 'https://s3-5002.nuage-peda.fr/messages';
   Future<List<MessageModel>> fetchMessages() async {

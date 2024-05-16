@@ -36,7 +36,7 @@
     });
     try {
       final response =
-          await login(_emailController.text, _passwordController.text);
+      await login(_emailController.text, _passwordController.text);
       await secureStorage.saveCredentials(
           _emailController.text, _passwordController.text);
           Provider.of<AuthProvider>(context, listen: false).login();
