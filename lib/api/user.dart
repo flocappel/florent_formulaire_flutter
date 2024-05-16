@@ -1,5 +1,6 @@
 import 'package:http/http.dart' as http;
  import 'dart:convert';
+ import 'package:flutter_application_5/models/user_model.dart';
  Future<int> registerUser(String firstName, String lastName, String email,
     String password, List<String> roles) async {
   var url = Uri.parse('https://s3-5002.nuage-peda.fr/users');  
@@ -76,3 +77,13 @@ import 'package:http/http.dart' as http;
  connexion a échoué, incluant la raison de l'échec (response.reasonPhrase)
  */
 
+Future<List<User>> fetchUsers() async {
+  final response = await http.get(Uri.parse('https://s3-5002.nuage-peda.fr/user'));
+
+  if (response.statusCode == 200) {
+    List<dynamic> data = jsonDecode(response.body);
+    return data.map((json) => User.fromJson(json)).toList();
+  } else {
+    throw Exception('Failed to load users');
+  }
+}

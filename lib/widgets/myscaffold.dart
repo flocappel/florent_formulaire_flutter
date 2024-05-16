@@ -23,6 +23,13 @@
         elevation: 10.0,
         centerTitle: true,
         actions: <Widget>[
+          ...actions,
+          IconButton(
+            icon: const Icon(Icons.list, color: Colors.white),
+            onPressed: () {
+              Navigator.pushNamed(context, '/list_users'); // pour la list
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.app_registration, color: Colors.white),
             onPressed: () {

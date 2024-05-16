@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_5/screens/home_screen.dart';
 import 'package:flutter_application_5/screens/register_screen.dart';
+import 'package:flutter_application_5/screens/list_users_screen.dart';
 import 'package:provider/provider.dart';
 import 'providers/auth_provider.dart';
 import 'screens/login_screen.dart';
@@ -29,6 +30,7 @@ import 'screens/login_screen.dart';
         '/': (context) => const HomeScreen(),
         '/register': (context) => const RegisterScreen(), //  Création d’une route vers l’écran d’inscription
          '/login': (context) => LoginScreen(),
+         '/list_users': (context) => ListUsersScreen(), // chemin pour la liste
       },
     );
   }
